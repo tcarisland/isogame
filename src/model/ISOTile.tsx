@@ -2,7 +2,7 @@ import ISOGridConfig from "../model/ISOGridConfig";
 import Color from "../interfaces/Color";
 import grass0002 from "../resources/images/tiles/grass0002.png";
 import grass0003 from "../resources/images/tiles/grass0003.png";
-import grass0004 from "../resources/images/tiles/grass0004.png";
+import facetile0000 from "../resources/images/tiles/facetile0000.png";
 
 export interface ISOTileVertex {
     x: number,
@@ -135,7 +135,7 @@ export default class ISOTile {
         let rectHeight = this.isoYToWorldSpace(vertices[3].y, gridConfig) - this.isoYToWorldSpace(vertices[0].y, gridConfig);
 
         let img = new Image();
-        img.src = grass0004;
+        img.src = facetile0000;
         ctx.drawImage(img,
             this.isoXToWorldSpace(vertices[0].x, gridConfig),
             this.isoYToWorldSpace(vertices[0].y, gridConfig) - rectHeight,

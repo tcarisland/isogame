@@ -1,0 +1,51 @@
+.App {
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.arrowsPreview {
+  display: grid;
+  background-color: rgba(255, 255, 255, 0.5);
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  grid-template-areas:
+    "nw n ne"
+    "w  c e"
+    "sw s se";
+  padding: 5px;
+}
+
+.arrowsKeyPreview {
+  text-align: center;
+  vertical-align: middle;
+  margin: auto;
+  color: black;
+}
+
+.arrowsKeyPreviewLight {
+  text-align: center;
+  vertical-align: middle;
+  margin: auto;
+  color: #E0E0E0;
+}

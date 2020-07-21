@@ -16,7 +16,7 @@ class ISOCanvas extends React.Component<ISOCanvasProps> {
     public static zeroPad(num: number, places: number): string { 
         return String(num).padStart(places, '0')
     }
-    public static VELOCITY = 0.1;
+    public static VELOCITY = 0.3;
 
     componentDidMount() {
         let width = this.getWorldWidth();

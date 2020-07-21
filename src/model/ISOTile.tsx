@@ -3,7 +3,7 @@ import Color from "../interfaces/Color";
 import grass0002 from "../resources/images/tiles/grass0002.png";
 import grass0003 from "../resources/images/tiles/grass0003.png";
 import facetile0000 from "../resources/images/tiles/facetile0000.png";
-import { ISOTileVertices } from "./ISOTileVertices";
+import ISOTileVertices from "./ISOTileVertices";
 
 export default class ISOTile {
     row: number;

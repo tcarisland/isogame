@@ -54,6 +54,8 @@ render() {
     return (<div
       id= {this.props.keyId}
       ref= {this.arrowDivRef}
+      onTouchStart= { this.mouseDown.bind(this) }
+      onTouchEnd= { this.mouseUp.bind(this) }
       onMouseLeave= {this.mouseLeave.bind(this) }
       onMouseDown= { this.mouseDown.bind(this) }
       onMouseUp= { this.mouseUp.bind(this) }

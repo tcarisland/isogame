@@ -12,7 +12,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <ISOCanvas tileWidth={width} tileHeight={height} rows={rows} columns={cols} canvasRef={createRef()} />
+        <ISOCanvas
+          tileWidth={width}
+          tileHeight={height}
+          rows={rows}
+          columns={cols}
+          canvasRef={createRef()}/>
         <ArrowsPreview side={130}/>
       </header>
     </div>

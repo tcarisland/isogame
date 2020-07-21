@@ -19,6 +19,19 @@
   color: white;
 }
 
+.isoCanvasWrapper {
+  display: grid;
+  grid-template-areas:
+  "nw n ne"
+  "w  c e"
+  "sw s se";
+}
+
+.isoCanvas {
+  grid-area: c;
+  background-color: rgba(255, 255, 255, 0);
+}
+
 .App-link {
   color: #61dafb;
 }

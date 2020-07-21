@@ -67,11 +67,14 @@ export default class ISOTile {
     zoom: number = 2;
     offsetX = 0.5;
     offsetY = 0.75;
+    activeImg: any;
 
     constructor(row: number, column: number, color?: Color) {
         this.row = row;
         this.column = column;
         this.color = color !== undefined ? color : Color.WHITE;
+        this.activeImg = new Image();
+        this.activeImg.src = facetile0000;
     }
 
     public getColor(): Color {
@@ -120,12 +123,15 @@ export default class ISOTile {
         } else {
             img.src = grass0003;
         }
-        ctx.drawImage(img,
-            this.isoXToWorldSpace(vertices[0].x, gridConfig),
-            this.isoYToWorldSpace(vertices[0].y, gridConfig),
-            rectWidth,
-            rectWidth
-            );
+        let current = this;
+        img.onload = function() {
+            ctx.drawImage(img,
+                current.isoXToWorldSpace(vertices[0].x, gridConfig),
+                current.isoYToWorldSpace(vertices[0].y, gridConfig),
+                rectWidth,
+                rectWidth
+                );    
+        }
     }
 
     public drawUpwardSprite(ctx: CanvasRenderingContext2D, gridConfig: ISOGridConfig) {
@@ -134,11 +140,10 @@ export default class ISOTile {
         let rectWidth = this.isoXToWorldSpace(vertices[1].x, gridConfig) - this.isoXToWorldSpace(vertices[0].x, gridConfig);
         let rectHeight = this.isoYToWorldSpace(vertices[3].y, gridConfig) - this.isoYToWorldSpace(vertices[0].y, gridConfig);
 
-        let img = new Image();
-        img.src = facetile0000;
-        ctx.drawImage(img,
-            this.isoXToWorldSpace(vertices[0].x, gridConfig),
-            this.isoYToWorldSpace(vertices[0].y, gridConfig) - rectHeight,
+        let current = this;
+        ctx.drawImage(this.activeImg,
+            current.isoXToWorldSpace(vertices[0].x, gridConfig),
+            current.isoYToWorldSpace(vertices[0].y, gridConfig) - rectHeight,
             rectWidth,
             rectWidth
             );

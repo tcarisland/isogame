@@ -1,7 +1,5 @@
 import ISOGridConfig from "../model/ISOGridConfig";
 import Color from "../interfaces/Color";
-import grass0002 from "../resources/images/tiles/grass0002.png";
-import grass0003 from "../resources/images/tiles/grass0003.png";
 import facetile0000 from "../resources/images/tiles/facetile0000.png";
 import ISOTileVertices from "./ISOTileVertices";
 
@@ -57,26 +55,23 @@ export default class ISOTile {
         return (y / this.zoom) + (gridConfig.height * (this.offsetY / 2));
     }
 
-    public drawImage(ctx: CanvasRenderingContext2D, gridConfig: ISOGridConfig) {
+    public drawImage(ctx: CanvasRenderingContext2D, gridConfig: ISOGridConfig, img: HTMLImageElement[]) {
         let vertices = this.create2DVertices(gridConfig).getEnclosingBox();
 
         let rectWidth = this.isoXToWorldSpace(vertices[1].x, gridConfig) - this.isoXToWorldSpace(vertices[0].x, gridConfig);
 
-        let img = new Image();
+        let imgNo = 0;
         if((this.row % 2 === 0 && this.column % 2 === 0) || (this.row % 2 === 1 && this.column % 2 === 1)) {
-            img.src = grass0002;
-        } else {
-            img.src = grass0003;
+            imgNo = 1;
         }
+        console.log("drawImage called " + img.length);
         let current = this;
-        img.onload = function() {
-            ctx.drawImage(img,
-                current.isoXToWorldSpace(vertices[0].x, gridConfig),
-                current.isoYToWorldSpace(vertices[0].y, gridConfig),
-                rectWidth,
-                rectWidth
-                );    
-        }
+        ctx.drawImage(img[imgNo],
+            current.isoXToWorldSpace(vertices[0].x, gridConfig),
+            current.isoYToWorldSpace(vertices[0].y, gridConfig),
+            rectWidth,
+            rectWidth
+            );    
     }
 
     public drawUpwardSprite(ctx: CanvasRenderingContext2D, gridConfig: ISOGridConfig) {

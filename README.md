@@ -1,3 +1,5 @@
+![Screenshot](docs/Screenshot_2020-07-18_at_01.34.33.png)
+
 # ISOGAME ONLINE
 
 The purpose of this project is to learn more about isometric graphics and game development.

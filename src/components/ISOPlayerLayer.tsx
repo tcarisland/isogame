@@ -6,16 +6,7 @@ import ISOCanvas from './ISOCanvas';
 import KeyPressType from '../enums/KeyPressType';
 import ArrowKeyPress from '../interfaces/ArrowKeyPress';
 import Color from '../interfaces/Color';
-
-interface ISOLayerProps {
-    canvasRef: any,
-    width: number,
-    height: number,
-    rows: number,
-    columns: number,
-    tileWidth: number,
-    tileHeight: number
-}
+import ISOLayerProps from '../props/ISOLayerProps';
 
 class ISOPlayerLayer extends React.Component<ISOLayerProps> {
     componentDidMount() {
@@ -54,10 +45,7 @@ class ISOPlayerLayer extends React.Component<ISOLayerProps> {
             width=  { this.props.width }
             height= { this.props.height }
             className= { "isoCanvas" }
-            style={Object.assign({ border: "1 px solid red" })}
-        >
-
-        </canvas>);
+        ></canvas>);
     }
 }
 

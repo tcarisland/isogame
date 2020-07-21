@@ -1,7 +1,6 @@
 import React from 'react';
-import ISOGridConfig from '../model/ISOGridConfig';
-import ISOGrid from '../model/ISOGrid';
 import ISOPlayerLayer from './ISOPlayerLayer';
+import ISOBackgroundLayer from './ISOBackgroundLayer';
 
 export interface ISOCanvasProps {
     canvasRef: any,
@@ -18,13 +17,6 @@ class ISOCanvas extends React.Component<ISOCanvasProps> {
     }
     public static VELOCITY = 0.3;
 
-    componentDidMount() {
-        let width = this.getWorldWidth();
-        let height = this.getWorldHeight();
-        let grid = new ISOGrid(new ISOGridConfig(this.props.rows, this.props.columns, width, height));
-        let ctx = this.props.canvasRef.current.getContext("2d");
-        grid.drawGrid(ctx);
-    }
     getWorldWidth(): number {
         return this.props.tileWidth * this.props.columns;        
     }
@@ -37,11 +29,15 @@ class ISOCanvas extends React.Component<ISOCanvasProps> {
     render() {
         return(
             <div className={"isoCanvasWrapper"}>
-                <canvas ref= { this.props.canvasRef }
+                <ISOBackgroundLayer
+                    canvasRef= { React.createRef() }
                     width=  { this.getWorldWidth() }
                     height= { this.getCanvasHeight() }
-                    className= { "isoCanvas" }>
-                </canvas>
+                    tileHeight= {this.props.tileHeight }
+                    tileWidth= {this.props.tileWidth }
+                    rows= { this.props.rows }
+                    columns= { this.props.columns }>
+                </ISOBackgroundLayer>
                 <ISOPlayerLayer
                     canvasRef= { React.createRef() }
                     width=  { this.getWorldWidth() }
@@ -49,8 +45,7 @@ class ISOCanvas extends React.Component<ISOCanvasProps> {
                     tileHeight= {this.props.tileHeight }
                     tileWidth= {this.props.tileWidth }
                     rows= { this.props.rows }
-                    columns= { this.props.columns }
-                >
+                    columns= { this.props.columns }>
                 </ISOPlayerLayer>
             </div>
         );

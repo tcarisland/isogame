@@ -7,10 +7,12 @@ export default class KeyPressEventQueue {
   
   private keyPressEvents: ArrowKeyPress[];
   private listeners: EventQueueListener[];
+  private timeouts: NodeJS.Timeout[];
   
   private constructor() {
     this.keyPressEvents = [];
     this.listeners = [];
+    this.timeouts = [];
   }
   
   static getInstance() {
@@ -23,6 +25,18 @@ export default class KeyPressEventQueue {
   public pushKeyPressEvent(kp: ArrowKeyPress) {
     this.keyPressEvents.push(kp);
     this.runListeners();
+  }
+
+  public pushRepeatingKeyPressEvent(kp: ArrowKeyPress, interval: number) {
+    this.timeouts[this.timeouts.length] = setInterval(function() {
+      KeyPressEventQueue.getInstance().pushKeyPressEvent(kp);
+    }, 100);
+  }
+
+  public stopRepeatingKeyPressEvents() {
+    for(let i = 0; i < this.timeouts.length; i++) {
+      clearTimeout(this.timeouts[i]);
+    }
   }
   
   private runListeners() {

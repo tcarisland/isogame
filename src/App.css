@@ -56,6 +56,10 @@
   color: black;
 }
 
+.arrowsKeyPreview:hover {
+  color: blue;
+}
+
 .arrowsKeyPreviewLight {
   text-align: center;
   vertical-align: middle;

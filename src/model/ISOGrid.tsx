@@ -12,6 +12,7 @@ export default class ISOGrid {
         this.config = config;
         this.tiles = []; 
     }
+
     drawGrid(ctx: CanvasRenderingContext2D) {
         let img1 = new Image();
         img1.src = grass0002;
@@ -20,18 +21,14 @@ export default class ISOGrid {
         let images: HTMLImageElement[] = [];
         let current = this;
         img1.onload = function() {
-            console.log("1 images.length " + images.length)
             images[images.length] = img1;
             if(images.length === 2) {
-                console.log("drawing img1");
                 current.onDrawReady(ctx, images);
             }
         }
         img2.onload = function() {
-            console.log("2 images.length " + images.length)
             images[images.length] = img2;
             if(images.length === 2) {
-                console.log("drawing img2");
                 current.onDrawReady(ctx, images);
             }
         }

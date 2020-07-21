@@ -57,14 +57,11 @@ export default class ISOTile {
 
     public drawImage(ctx: CanvasRenderingContext2D, gridConfig: ISOGridConfig, img: HTMLImageElement[]) {
         let vertices = this.create2DVertices(gridConfig).getEnclosingBox();
-
         let rectWidth = this.isoXToWorldSpace(vertices[1].x, gridConfig) - this.isoXToWorldSpace(vertices[0].x, gridConfig);
-
         let imgNo = 0;
         if((this.row % 2 === 0 && this.column % 2 === 0) || (this.row % 2 === 1 && this.column % 2 === 1)) {
             imgNo = 1;
         }
-        console.log("drawImage called " + img.length);
         let current = this;
         ctx.drawImage(img[imgNo],
             current.isoXToWorldSpace(vertices[0].x, gridConfig),

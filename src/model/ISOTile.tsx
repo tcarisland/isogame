@@ -1,6 +1,5 @@
 import ISOGridConfig from "../model/ISOGridConfig";
 import Color from "../interfaces/Color";
-import facetile0000 from "../resources/images/tiles/facetile0000.png";
 import ISOTileVertices from "./ISOTileVertices";
 
 export default class ISOTile {
@@ -16,8 +15,6 @@ export default class ISOTile {
         this.row = row;
         this.column = column;
         this.color = color !== undefined ? color : Color.WHITE;
-        this.activeImg = new Image();
-        this.activeImg.src = facetile0000;
     }
 
     public getColor(): Color {
@@ -71,14 +68,14 @@ export default class ISOTile {
             );    
     }
 
-    public drawUpwardSprite(ctx: CanvasRenderingContext2D, gridConfig: ISOGridConfig) {
+    public drawUpwardSprite(ctx: CanvasRenderingContext2D, gridConfig: ISOGridConfig, img: HTMLImageElement) {
         let vertices = this.create2DVertices(gridConfig).getEnclosingBox();
 
         let rectWidth = this.isoXToWorldSpace(vertices[1].x, gridConfig) - this.isoXToWorldSpace(vertices[0].x, gridConfig);
         let rectHeight = this.isoYToWorldSpace(vertices[3].y, gridConfig) - this.isoYToWorldSpace(vertices[0].y, gridConfig);
 
         let current = this;
-        ctx.drawImage(this.activeImg,
+        ctx.drawImage(img,
             current.isoXToWorldSpace(vertices[0].x, gridConfig),
             current.isoYToWorldSpace(vertices[0].y, gridConfig) - rectHeight,
             rectWidth,

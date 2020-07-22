@@ -1,4 +1,4 @@
-![Screenshot](docs/Screenshot_2020-07-18_at_01.34.33.png)
+![Screenshot](doc/Screenshot_2020-07-18_at_01.34.33.png)
 
 # ISOGAME ONLINE
 

@@ -7,7 +7,7 @@ import KeyPressType from '../enums/KeyPressType';
 import ArrowKeyPress from '../interfaces/ArrowKeyPress';
 import Color from '../interfaces/Color';
 import ISOLayerProps from '../props/ISOLayerProps';
-import facetile0000 from "../resources/images/tiles/grass0004.png";
+import grass0001 from "../resources/images/tiles/grass0001.png";
 
 class ISOPlayerLayer extends React.Component<ISOLayerProps> {
     componentDidMount() {
@@ -19,7 +19,7 @@ class ISOPlayerLayer extends React.Component<ISOLayerProps> {
         let rows = this.props.rows;
         let columns = this.props.columns;
         let img = new Image();
-        img.src = facetile0000;
+        img.src = grass0001;
         img.onload = function() {
             active.drawUpwardSprite(ctx, new ISOGridConfig(rows, columns, width, height), img);
         }

@@ -1,7 +1,7 @@
 import ISOGridConfig from './ISOGridConfig';
 import ISOTile from './ISOTile';
-import grass0002 from "../resources/images/tiles/grass0002.png";
-import grass0003 from "../resources/images/tiles/grass0003.png";
+import grass0002 from "../resources/images/tiles/triangular0001.png";
+import grass0003 from "../resources/images/tiles/triangular0002.png";
 
 export default class ISOGrid {
 

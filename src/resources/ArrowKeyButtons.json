@@ -1,63 +1,63 @@
 [
   {
-    "keyId": "leftArrowKey",
+    "keyId": "nwArrowKey",
     "dir": 2,
-    "key": 2,
-    "code": 37,
-    "symbol": "&#x025C0;",
-    "position": "w"
+    "key": 10,
+    "symbol": "&#x025E4;",
+    "position": "nw"
   },
   {
     "keyId": "upArrowKey",
-    "dir": 8,
+    "dir": 10,
     "key": 8,
     "code": 38,
     "symbol": "&#x025B2;",
     "position": "n"
   },
   {
+    "keyId": "neArrowKey",
+    "dir": 8,
+    "key": 9,
+    "symbol": "&#x025E5;",
+    "position": "ne"
+  },
+  {
     "keyId": "rightArrowKey",
-    "dir": 1,
+    "dir": 9,
     "key": 1,
     "code": 39,
     "symbol": "&#x025B6;",
     "position": "e"
   },
   {
+    "keyId": "seArrowKey",
+    "dir": 1,
+    "key": 5,
+    "symbol": "&#x025E2;",
+    "position": "se"
+  },
+  {
     "keyId": "downArrowKey",
-    "dir": 4,
+    "dir": 5,
     "key": 4,
     "code": 40,
     "symbol": "&#x025BC;",
     "position": "s"
   },
   {
-    "keyId": "nwArrowKey",
-    "dir": 10,
-    "key": 10,
-    "symbol": "&#x025E4;",
-    "position": "nw"
-  },
-  {
-    "keyId": "neArrowKey",
-    "dir": 9,
-    "key": 9,
-    "symbol": "&#x025E5;",
-    "position": "ne"
-  },
-  {
     "keyId": "swArrowKey",
-    "dir": 6,
+    "dir": 4,
     "key": 6,
     "symbol": "&#x025E3;",
     "position": "sw"
   },
   {
-    "keyId": "seArrowKey",
-    "dir": 5,
-    "key": 5,
-    "symbol": "&#x025E2;",
-    "position": "se"
+    "keyId": "leftArrowKey",
+    "dir": 6,
+    "key": 2,
+    "code": 37,
+    "symbol": "&#x025C0;",
+    "position": "w"
   },
   {
     "keyId": "spaceKey",

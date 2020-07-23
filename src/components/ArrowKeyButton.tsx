@@ -29,6 +29,7 @@ class ArrowsKeyButton extends React.Component<ArrowKeyProps, ArrowKeyButtonState
         type: KeyPressType.ARROW,
         code: this.props.code,
         dir: this.props.dir !== undefined ? this.props.dir : 0,
+        ndir: 0,
         active: true,
         id: this.props.keyId
       };

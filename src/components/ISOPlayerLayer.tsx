@@ -38,14 +38,14 @@ class ISOPlayerLayer extends React.Component<ISOLayerProps> {
                         img.src = require("../resources/images/tiles/ogre/" + CharacterSprites.getInstance().getNext(keyPress.dir));
                         active.row = (rY < (rows - (1 - ISOCanvas.VELOCITY)) && rY >= 0) ? rY : active.row;
                         active.column = (rX < (columns - (1 - ISOCanvas.VELOCITY)) && rX >= 0) ? rX : active.column;
+                        ctx.clearRect(0, 0, width, height);
+                        img.onload = function() {
+                          active.drawUpwardSprite(ctx, new ISOGridConfig(rows, columns, width, height), img);
+                        }
                         break;
                     case KeyPressType.SPACE:
                         console.log("space pressed")
                         break;
-                  }
-                  ctx.clearRect(0, 0, width, height);
-                  img.onload = function() {
-                    active.drawUpwardSprite(ctx, new ISOGridConfig(rows, columns, width, height), img);
                   }
             }
         });

@@ -1,7 +1,5 @@
 import ISOGridConfig from './ISOGridConfig';
 import ISOTile from './ISOTile';
-import grass0002 from "../resources/images/tiles/grass0002.png";
-import grass0003 from "../resources/images/tiles/grass0003.png";
 
 export default class ISOGrid {
 
@@ -15,9 +13,9 @@ export default class ISOGrid {
 
     drawGrid(ctx: CanvasRenderingContext2D) {
         let img1 = new Image();
-        img1.src = grass0002;
+        img1.src = require("../resources/images/tiles/grass0002.png");
         let img2 = new Image();
-        img2.src = grass0003;
+        img2.src = require("../resources/images/tiles/grass0003.png");
         let images: HTMLImageElement[] = [];
         let current = this;
         img1.onload = function() {

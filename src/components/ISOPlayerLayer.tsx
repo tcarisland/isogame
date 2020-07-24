@@ -7,14 +7,8 @@ import KeyPressType from '../enums/KeyPressType';
 import ArrowKeyPress from '../interfaces/ArrowKeyPress';
 import Color from '../interfaces/Color';
 import ISOLayerProps from '../props/ISOLayerProps';
-import ogre_0001 from "../resources/images/tiles/ogre/ogre_0001.png";
-import ogre_0010 from "../resources/images/tiles/ogre/ogre_0010.png";
+import CharacterSprites from '../sprites/CharacterSprites';
 import ogre_0100 from "../resources/images/tiles/ogre/ogre_0100.png";
-import ogre_1000 from "../resources/images/tiles/ogre/ogre_1000.png";
-import ogre_1001 from "../resources/images/tiles/ogre/ogre_1001.png";
-import ogre_0110 from "../resources/images/tiles/ogre/ogre_0110.png";
-import ogre_1010 from "../resources/images/tiles/ogre/ogre_1010.png";
-import ogre_0101 from "../resources/images/tiles/ogre/ogre_0101.png";
 
 class ISOPlayerLayer extends React.Component<ISOLayerProps> {
     componentDidMount() {
@@ -27,15 +21,7 @@ class ISOPlayerLayer extends React.Component<ISOLayerProps> {
         let columns = this.props.columns;
         let img = new Image();
         img.src = ogre_0100;
-        let spriteTiles: string[] = [];
-        spriteTiles[1] = ogre_0001;
-        spriteTiles[2] = ogre_0010;
-        spriteTiles[4] = ogre_0100;
-        spriteTiles[8] = ogre_1000;
-        spriteTiles[9] = ogre_1001;
-        spriteTiles[6] = ogre_0110;
-        spriteTiles[10] = ogre_1010;
-        spriteTiles[5] = ogre_0101;
+
         img.onload = function() {
             active.drawUpwardSprite(ctx, new ISOGridConfig(rows, columns, width, height), img);
         }
@@ -49,7 +35,7 @@ class ISOPlayerLayer extends React.Component<ISOLayerProps> {
                         let dY = (-1 * parseInt(direction.substring(2, 3)) + parseInt(direction.substring(3, 4)));
                         let rY = active.row + dX * ISOCanvas.VELOCITY;
                         let rX = active.column + dY * ISOCanvas.VELOCITY;
-                        img.src = spriteTiles[keyPress.dir];
+                        img.src = require("../resources/images/tiles/ogre/" + CharacterSprites.getInstance().getNext(keyPress.dir));
                         active.row = (rY < (rows - (1 - ISOCanvas.VELOCITY)) && rY >= 0) ? rY : active.row;
                         active.column = (rX < (columns - (1 - ISOCanvas.VELOCITY)) && rX >= 0) ? rX : active.column;
                         break;

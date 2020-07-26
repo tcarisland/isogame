@@ -1,6 +1,7 @@
 import React from 'react';
 import ISOPlayerLayer from './ISOPlayerLayer';
 import ISOBackgroundLayer from './ISOBackgroundLayer';
+import ISOMapLayer from './ISOMapLayer';
 
 export interface ISOCanvasProps {
     canvasRef: any,
@@ -47,6 +48,15 @@ class ISOCanvas extends React.Component<ISOCanvasProps> {
                     rows= { this.props.rows }
                     columns= { this.props.columns }>
                 </ISOPlayerLayer>
+                <ISOMapLayer
+                    canvasRef= { React.createRef() }
+                    width=  { this.getWorldWidth() }
+                    height= { this.getCanvasHeight() }
+                    tileHeight= {this.props.tileHeight }
+                    tileWidth= {this.props.tileWidth }
+                    rows= { this.props.rows }
+                    columns= { this.props.columns }>
+                </ISOMapLayer>
             </div>
         );
     }

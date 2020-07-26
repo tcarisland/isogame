@@ -15,7 +15,7 @@ class ISOPlayerLayer extends React.Component<ISOLayerProps> {
         let width = this.props.width;
         let height = this.props.height;
         let ctx = this.props.canvasRef.current.getContext("2d");
-        let active = new ISOTile(0, 0, Color.WHITE);
+        let active = new ISOTile(1, 0, Color.WHITE);
         let source = this;
         let rows = this.props.rows;
         let columns = this.props.columns;
